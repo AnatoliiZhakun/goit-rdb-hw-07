@@ -1,0 +1,42 @@
+Завдання 1
+
+USE mydb;
+SELECT
+  id,
+  date,
+  YEAR(date)  AS year,
+  MONTH(date) AS month,
+  DAY(date)   AS day
+FROM orders;
+
+Завдання 2
+SELECT
+  id,
+  date,
+  DATE_ADD(date, INTERVAL 1 DAY) AS date_plus_1_day
+FROM orders;
+
+
+Завдання 3
+SELECT
+  id,
+  date,
+  UNIX_TIMESTAMP(date) AS date_unix_ts
+FROM orders;
+
+
+Завдання 4
+SELECT
+  COUNT(*) AS cnt
+FROM orders
+WHERE date BETWEEN '1996-07-10 00:00:00' AND '1996-10-08 00:00:00';
+
+
+Завдання 5
+SELECT
+  id,
+  date,
+  JSON_OBJECT('id', id, 'date', date) AS order_json
+FROM orders;
+
+
